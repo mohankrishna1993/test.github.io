@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2 id="notepad">Notepad123</h2>
+    <h3>Tools</h3>
+        <select class="style" onchange="changeFont(this)" id="fontFamilyDroupdown">
+           <option value="Arial">Arial</option>
+           <option value="Sans Serif">Sans Serif</option>
+           <option value="Comic Sans MS">Comic Sans MS</option>
+           <option value="Times New Roman">Times New Roman</option>
+           <option value="Courier New">Courier New</option>
+           <option value="Verdana">Verdana</option>
+           <option value="Trebuchet MS">Trebuchet MS</option>
+           <option value="Arial Black">Arial Black</option>
+           <option value="Impact">Impact</option>
+           <option value="Bookman">Bookman</option>
+           <option value="Helvetica">Helvetica</option>
+           <option value="Garamond">Garamond</option>
+           <option value="Palatino">Palatino</option>
+           <option value="Georgia">Georgia</option>
+           <option value="Montserrat">Montserrat</option>
+        </select>
+        <select class="size" onchange="changeSize(this)" id="fontSize">
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+            <option>26</option>
+            <option>28</option>
+            <option>30</option>
+            <option>32</option>
+        </select> 
+
+        <input type="button" value="Bold" class="upper" onclick="changeToBold()">
+        <input type="button" value="Italic" class="upper" onclick="changeToItalic()">
+        <input type="button" value="Underline" class="upper" onclick="underline()">
+        <br><br>
+
+
+        <textarea placeholder="Enter your test here...." id="content" rows="20" cols="100">
+
+        </textarea>
+        <br>
+    <div class="center">
+        <input type="reset" value="clear"  onclick="clearText()">
+        <input type="button" value="Reset" class="normal" onclick="reset()">
+    </div>
+          
+    </div>
+
+    <script type="text/javascript">
+        function changeFont(font){
+            console.log(font);
+            document.getElementById("content").style.fontFamily = font.value;
+        }
+
+        function changeSize(e){
+            console.log(e.value);
+            document.getElementById("content").style.fontSize = e.value + "px";   
+        }
+        
+        function changeToBold(){
+            var b = document.getElementById("content").style.fontWeight;
+            if(b === "bold"){
+               document.getElementById("content").style.fontWeight = "normal" ;
+
+            }
+            else{
+                document.getElementById("content").style.fontWeight = "bold";
+            }
+
+        }
+        function changeToItalic(){
+            var i = document.getElementById("content").style.fontStyle;
+            if(i === "italic"){
+               document.getElementById("content").style.fontStyle = "normal" ;
+
+            }
+            else{
+                document.getElementById("content").style.fontStyle = "italic";
+            }
+
+        }
+        function underline(){
+            var i = document.getElementById("content").style.textDecoration;
+            if(i === "underline"){
+               document.getElementById("content").style.textDecoration = "none" ;
+
+            }
+            else{
+                document.getElementById("content").style.textDecoration = "underline";
+            }
+        }
+        function clearText(){
+            document.getElementById("content").value ="";
+        }
+        function reset(){
+            document.getElementById("content").style.fontWeight = "normal";
+            document.getElementById("content").style.fontStyle = "normal";
+            document.getElementById("content").style.textDecoration = "none";
+            document.getElementById("content").style.fontSize = "8" + "px";
+            document.getElementById("fontFamilyDroupdown").selectedIndex = 0;
+            document.getElementById("fontSize").selectedIndex = 0;
+        }
+    </script>
+    
+</body>
+</html>
